@@ -7,7 +7,7 @@ exports.snime = async (req, res) => {
   var PhRandom = Math.floor(Math.random() * count.val());
   const eventref = db.ref(`data/stickers/anime/${PhRandom}`);
   const snapshot = await eventref.once("value");
-  return res.status(201).send({ phrase: snapshot.val(), status: "ok" });
+  return res.status(201).send({ image: snapshot.val(), status: "ok" });
 };
 
 exports.doge = async (req, res) => {
@@ -16,7 +16,7 @@ exports.doge = async (req, res) => {
   var PhRandom = Math.floor(Math.random() * count.val());
   const eventref = db.ref(`data/stickers/doge/${PhRandom}`);
   const snapshot = await eventref.once("value");
-  return res.status(201).send({ phrase: snapshot.val(), status: "ok" });
+  return res.status(201).send({ image: snapshot.val(), status: "ok" });
 };
 
 exports.toWebpBuff = async (req, res) => {
