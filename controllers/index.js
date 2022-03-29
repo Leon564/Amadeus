@@ -1,0 +1,11 @@
+exports.anime = require("./anime");
+exports.imageEffects = require("./imageEffects");
+exports.meme = require("./memes");
+exports.movie = require("./movie");
+exports.nfsw = require("./nfsw");
+exports.sfw = require("./sfw");
+exports.phrase = require("./phrases");
+exports.stickers = require("./stickers");
+exports.webshots = require("./webshots");
+exports.zodiac = require("./zodiac");
+exports.news = require("./news");
