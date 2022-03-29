@@ -19,7 +19,7 @@ Search results by name
 * /api/anime/search?q=Overlord  
 
 Search a anime character by name
-* /api/character?Name=kirito
+* /api/character?Name=Rimuru
 
 Obtain a random female anime character
 * /api/sfw/waifu
@@ -56,7 +56,7 @@ Convert any image or gif into a sticker from a url
 
 ## Image effects
 
-Get a calendar with a custom backgrgound image
+Get a calendar with a custom background image
 * /api/calendar?url=https://i.ibb.co/7WQBQtq/Tsuki-ga-Michibiku-Isekai-Douchuu.png
 
 ## Misc
@@ -77,10 +77,10 @@ Get the random Love percent
 The data is obtained from [ninoasia.com](https://ninoasia.com/)
 
 Get list of anime news
-* /api/animenews
+* /api/news/anime
 
 Get a new by id
-* /api/animenews?id=newsid
+* /api/news/anime?id=newsid
 
 # Demo
 

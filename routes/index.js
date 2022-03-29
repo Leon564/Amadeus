@@ -60,6 +60,6 @@ api.get("/lovecalc", zodiac.lovecalc);
 api.get("/calendar", imageEffects.calendar);
 
 //News
-api.get("/animenews", news.animeNews);
+api.get("/news/anime", news.animeNews);
 
 module.exports = api;
