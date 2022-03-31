@@ -65,7 +65,7 @@ exports.buscar = async function (req, res) {
     return res
       .status(500)
       .send({ error: "Parameter q for name or url is required." });
-  if (id) {    
+  if (id) {
     let result = await scrapper.tioanime(id);
     return res.status(201).send({ results: [result] });
   }
@@ -83,15 +83,14 @@ exports.buscar = async function (req, res) {
       .map((i, x) => ({ url: $(x).attr("href") }))
       .toArray()
       .slice(0, 10);
-    //console.log(results)
+
     var animes = [];
     for (let x of results) {
       var result = await scrapper.tioanime(x.url);
       animes.push(result);
-      //console.log(result)
+     
     }
-    //console.log('***********************************')
-    //console.log(animes)
+    
     return res.status(201).send({ results: animes });
   });
 };

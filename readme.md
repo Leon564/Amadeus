@@ -19,7 +19,7 @@ Search results by name
 * /api/anime/search?q=Overlord  
 
 Search a anime character by name
-* /api/character?Name=Rimuru
+* /api/anime/character?name=Rimuru
 
 Obtain a random female anime character
 * /api/sfw/waifu

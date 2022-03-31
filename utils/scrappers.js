@@ -10,8 +10,8 @@ var { decode } = require("html-entities");
 const tioanime = (id) => {
   let url = id.includes(`https://tioanime.com`)
     ? encodeURI(id)
-    : encodeURI(`https://tioanime.com/anime/${id}`);
-  console.log(url);
+    : encodeURI(`https://tioanime.com${id}`);
+ 
   return rp(url)
     .then(async (html) => {
       //console.log(url)
