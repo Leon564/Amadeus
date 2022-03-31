@@ -86,9 +86,8 @@ exports.buscar = async function (req, res) {
 
     var animes = [];
     for (let x of results) {
-      var result = await scrapper.tioanime(x.url);
-      animes.push(result);
-     
+      var result = await scrapper.tioanime(`https://tioanime.com${x.url}`);
+      animes.push(result);     
     }
     
     return res.status(201).send({ results: animes });
