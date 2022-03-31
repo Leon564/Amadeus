@@ -75,9 +75,7 @@ exports.buscar = async function (req, res) {
     const dom = new JSDOM(html);
     const $ = require("jquery")(dom.window);
     const _results = $.find('article[class="anime"]');
-    const _animes = $(_results).find("a");
-
-    var sResult = null;
+    const _animes = $(_results).find("a");    
     var animes = [];
     var results = $(_animes)
       .map((i, x) => ({ url: $(x).attr("href") }))
@@ -86,7 +84,7 @@ exports.buscar = async function (req, res) {
 
     var animes = [];
     for (let x of results) {
-      var result = await scrapper.tioanime(`https://tioanime.com${x.url}`);
+      var result = await scrapper.tioanime(`${x.url.split("/")[2]}`);
       animes.push(result);     
     }
     
@@ -119,7 +117,7 @@ exports.random = async function (req, res) {
           Math.floor(Math.random() * (parseInt(nAnimes) - 0 + 1) + 0) - 1;
         const _href = $(animes[rnime]).find("a");
         const href = $(_href).attr("href");
-        let anime = await scrapper.tioanime(href);
+        let anime = await scrapper.tioanime(href.split("/")[2]);
         return res.status(201).send({ results: [anime] });
       }
     );
