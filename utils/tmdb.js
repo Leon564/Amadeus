@@ -11,14 +11,14 @@ const tmdbById = async (id, type) => {
     return { success: false, error: "not found" };
   }
   let genres = m.genres.map((value) => value.name);
-
+  console.log(m);
   return {
     id: m.id,
     title: m.title ? m.title : m.name,
     original_title: m.original_title ? m.original_title : m.original_name,
     type: m.media_type,
     genres,
-    relase_date: m.release_date ? m.release_date : m.seasons[0].air_date,
+    relase_date: m.release_date ? m.release_date : m.first_air_date,
     vote_average: m.vote_average,
     overview: m.overview != "" ? m.overview : "not description :)",
     posterw500: m.poster_path

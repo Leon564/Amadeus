@@ -17,7 +17,7 @@ const movie = async (req, res) => {
     let type = req.query.type;
     if(type!='tv' && type!='movie')type='movie';
     return tmdbById(req.query.id, req.query.type).then((m) => {
-      return res.status(201).send(m);
+      return res.status(201).send({results:[m]});
     });
   }
 

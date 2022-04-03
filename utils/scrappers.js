@@ -69,7 +69,7 @@ const tioanime = (id) => {
 
       let id = url.split("/anime/")[1];
       return {
-        title,
+        title:decode(title),
         genres: generos,
         state: status,
         relase_date: year,
