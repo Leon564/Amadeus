@@ -88,7 +88,7 @@ exports.buscar = async function (req, res) {
       animes.push(result);     
     }
     
-    return res.status(201).send({ results: animes });
+    return res.status(201).send({ results: animes, total_results: animes.length });
   });
 };
 
