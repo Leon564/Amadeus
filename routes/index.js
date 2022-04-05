@@ -28,7 +28,8 @@ api.post("/meme", meme.addmeme);
 api.delete("/meme", meme.Delete);
 
 //anime
-api.get("/anime/character", anime.character);
+api.get("/anime/character/:id", anime.characterById);
+api.get("/anime/character", anime.characterByName);
 api.get("/anime/search", anime.buscar);
 api.get("/anime", anime.random);
 
