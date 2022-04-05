@@ -43,7 +43,7 @@ exports.characterById = async function (req, res) {
     (err) => (desc = result.data.about)
   );
   return res.send({
-    image: result.result.data.images.jpg,
+    image: result.data.images.jpg,
     about: desc.text ? desc.text : desc,
     name: result.data.name,
   });
