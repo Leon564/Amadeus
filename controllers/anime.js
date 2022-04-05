@@ -67,6 +67,7 @@ exports.buscar = async function (req, res) {
       .send({ error: "Parameter q for name or url is required." });
   if (id) {
     let result = await scrapper.tioanime(id);
+    if(result.error) return res.status(500).send({error: "Not found"});
     return res.status(201).send({ results: [result] });
   }
   var _url = `https://tioanime.com/directorio?q=${query.replace(/[ ]/gi, "+")}`;
@@ -117,7 +118,7 @@ exports.random = async function (req, res) {
           Math.floor(Math.random() * (parseInt(nAnimes) - 0 + 1) + 0) - 1;
         const _href = $(animes[rnime]).find("a");
         const href = $(_href).attr("href");
-        let anime = await scrapper.tioanime(href.split("/")[2]);
+        let anime = await scrapper.tioanime(href.split("/")[2]);        
         return res.status(201).send({ results: [anime] });
       }
     );
