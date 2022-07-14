@@ -2,7 +2,7 @@ const rp = require("request-promise");
 const JSDOM = require("jsdom").JSDOM;
 const scrapper = require("../utils/scrappers");
 const translatte = require("translatte");
-var { decode } = require("html-entities");
+const { decode } = require("html-entities");
 const { fetchJson } = require("fetch-json");
 
 exports.characterByName = async function (req, res) {

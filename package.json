@@ -18,6 +18,7 @@
     "firebase-admin": "^10.0.2",
     "fs": "^0.0.1-security",
     "html-entities": "^2.3.2",
+    "images-scraper": "^6.4.1",
     "jimp": "^0.16.1",
     "jquery": "^3.6.0",
     "jsdom": "^19.0.0",

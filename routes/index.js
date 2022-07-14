@@ -13,6 +13,7 @@ const {
   webshots,
   zodiac,
   news,
+  imageSearch,
 } = require("../controllers");
 
 const api = express.Router();
@@ -52,6 +53,10 @@ api.get("/movie", movie.movie);
 //webshots
 api.get("/ws", webshots.screenshot);
 api.get("/pagepdf", webshots.pdf);
+
+//imageSearch
+api.get("/image/similarly", imageSearch.searchbyimage);
+api.get("/image/search", imageSearch.search);
 
 //zodiac
 api.get("/zodiac", zodiac.zodiac);

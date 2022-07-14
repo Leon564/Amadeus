@@ -9,3 +9,4 @@ exports.stickers = require("./stickers");
 exports.webshots = require("./webshots");
 exports.zodiac = require("./zodiac");
 exports.news = require("./news");
+exports.imageSearch = require("./imageSearch");

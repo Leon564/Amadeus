@@ -3,15 +3,14 @@ const config = require("../config");
 
 const tmdbById = async (id, type) => {
   type = type ? type : "movie";
-  var m = await fetchJson.get(
+  const m = await fetchJson.get(
     `https://api.themoviedb.org/3/${type}/${id}?api_key=${config.themoviedb_apikey}&language=es&external_source=imdb_id`
   );
 
   if (m.success == false) {
     return { success: false, error: "not found" };
   }
-  let genres = m.genres.map((value) => value.name);
-  console.log(m);
+  const genres = m.genres.map((value) => value.name);
   return {
     id: m.id,
     title: m.title ? m.title : m.name,
