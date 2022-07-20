@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer");
-const Scraper = require('images-scraper');
+const {GoogleScraper} = require('../utils');
 
 const searchbyimage = async (req, res) => {
   const imageUrl = req.query.url;
@@ -7,7 +7,9 @@ const searchbyimage = async (req, res) => {
   const page = await browser.newPage();
   await page.goto(
     "https://www.google.com/searchbyimage?image_url=" +
-      encodeURIComponent(imageUrl)
+      encodeURIComponent(imageUrl), {
+        waitUntil: 'networkidle0',
+      }
   );
 
   const images = await page.evaluate(() => {
@@ -21,7 +23,7 @@ const searchbyimage = async (req, res) => {
 };
 const search= async (req, res) => {
   const query = req.query.q;
-  const google = new Scraper({
+  const google = new GoogleScraper({
     puppeteer: {
       headless: true,
     },
