@@ -14,6 +14,7 @@ const {
   zodiac,
   news,
   imageSearch,
+  postalNinja
 } = require("../controllers");
 
 const api = express.Router();
@@ -67,5 +68,8 @@ api.get("/calendar", imageEffects.calendar);
 
 //News
 api.get("/news/anime", news.animeNews);
+
+//PostalNinja
+api.get("/track", postalNinja.track);
 
 module.exports = api;
