@@ -22,7 +22,7 @@ const getNew= async (id,type) => {
   const $ = load(html);
   const title = $("h1[class='ar-title white-co mab1 pdt fz5 lg-fz7 xl-fz8 mar']").text();
   const date = $("span[class='op5 mar2']").text();
-  const content = $("main").text().replace(/[●]/g, "\n●").trim();
+  const content = $("main").text().replace(/[●]/g, "\n●").replace(/▼ Publicidad/g, "").trim();
   const source = $("main").find("a[rel='nofollow']").attr("href");
   const newUrl = page.url();
   const images= [];
