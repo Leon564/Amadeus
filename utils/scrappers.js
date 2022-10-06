@@ -86,48 +86,7 @@ const tioanime = (id) => {
       return { error: "invalid url" };
     });
 };
-const ninoasia = async (id) => {
-  let url = id.includes("https://ninoasia.com/")
-    ? encodeURI(id)
-    : encodeURI(`https://ninoasia.com/${id.trim()}`);
-  
-  return rp(url)
-    .then(async (html) => {
-      const dom = new JSDOM(html);
-      const $ = require("jquery")(dom.window);
 
-      const title = $.find('h1[class="is-title post-title"]'); //text
-      const mainImgDiv = $.find('div[class="featured"]');
-      const mainImage = $(mainImgDiv).find("a"); //href
-      let news = $.find(
-        'div[class="post-content cf entry-content content-spacious"]'
-      ); //text
-      let videosframes = $.find("iframe"); //text
-      let videos = $(videosframes)
-        .map((i, item) => ({
-          url: $(item).attr("src").split("?")[0].replace("embed", "watch"),
-        }))
-        .toArray();
-
-      let extraImagesContents = $(news).find("img");
-      let extraImages = $(extraImagesContents)
-        .map((i, x) => ({ url: $(x).attr("src") }))
-        .toArray();
-
-      return {
-        title: $(title).text(),
-        news: $(news).text().replace(/[●]/g, "\n●").trim(),
-        mainImage: $(mainImage).attr("href"),
-        extraImages,
-        post: url,
-        videos,
-      };
-    })
-    .catch((err) => {
-      return { error: err };
-    });
-};
 module.exports = {  
-  tioanime,
-  ninoasia,
+  tioanime
 };
