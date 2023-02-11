@@ -1,8 +1,10 @@
 const { fetchJson } = require('fetch-json')
 
 const randomwaifu = async (req, res) => {    
-    const result = await fetchJson.get(`https://api.waifu.im/search/?included_tags=waifu`);
-    //console.log(result)
+    const tag = ['maid', 'waifu', 'marin-kitagawa', 'mori-calliope', 'raiden-shogun', 'oppai', 'selfies', 'uniform']
+    const randTag = tag[Math.floor(Math.random() * tag.length)]
+    let result = await fetchJson.get(`https://api.waifu.im/search/?included_tags=${randTag}`);
+    result.url = result.url
     return res.status(201).send({ result, status: 'ok' })
 }
 

@@ -6,6 +6,7 @@ const randomwaifu = async (req, res) => {
     console.log(`Searching lewd from ${randTag} subreddit...`)
     let result = await fetchJson.get(`https://api.waifu.im/search/?included_tags=${randTag}`);
     result.title= result.images[0].tags[0].name
+    result.url = result.url
     return res.status(201).send({ result, status: 'ok' })
 }
 
