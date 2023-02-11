@@ -1,7 +1,7 @@
 const { fetchJson } = require('fetch-json')
 
 const randomwaifu = async (req, res) => {    
-    const result = await fetchJson.get(`https://api.waifu.im/random/?selected_tags=waifu`);
+    const result = await fetchJson.get(`https://api.waifu.im/search/?included_tags=waifu`);
     //console.log(result)
     return res.status(201).send({ result, status: 'ok' })
 }
